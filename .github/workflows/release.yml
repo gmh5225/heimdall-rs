@@ -22,7 +22,7 @@ jobs:
             artifact_name: heimdall
             asset_name: heimdall-macos-amd64
           - os: windows-latest
-            artifact_name: heimdall.exe
+            artifact_name: heimdall-win.exe
             asset_name: heimdall-windows-amd64
 
     steps:
