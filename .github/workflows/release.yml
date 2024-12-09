@@ -32,10 +32,10 @@ jobs:
       run:  |
         cargo clean
         if [ "${{ matrix.os }}" == "windows-latest" ]; then
-          $env:RUSTFLAGS="-C codegen-units=1"
-          $env:CARGO_PROFILE_RELEASE_LTO="true"
-          cargo build --release
+          echo "Building on Windows"
+          powershell -Command "Set-Item -Path Env:RUSTFLAGS -Value '-C codegen-units=1'; Set-Item -Path Env:CARGO_PROFILE_RELEASE_LTO -Value 'true'; cargo build --release"
         else
+          echo "Building on Unix-based OS"
           RUSTFLAGS="-C codegen-units=1" CARGO_PROFILE_RELEASE_LTO=true cargo build --release
         fi
       shell: bash
