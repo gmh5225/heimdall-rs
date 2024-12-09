@@ -1,9 +1,9 @@
 name: Publish
 
-on:
-  push:
-    tags:
-      - '*'
+permissions:
+  contents: write
+  
+on: [push, pull_request]
 
 env:
   CARGO_TERM_COLOR: always
@@ -33,10 +33,4 @@ jobs:
         cargo clean
         RUSTFLAGS="-C codegen-units=1" CARGO_PROFILE_RELEASE_LTO=true cargo build --release
 
-    - name: Upload Binaries
-      uses: svenstaro/upload-release-action@v2
-      with:
-        file: ./target/release/${{ matrix.artifact_name }}
-        asset_name: ${{ matrix.asset_name }}
-        tag: ${{ github.ref }}
-        overwrite: true
+
