@@ -21,6 +21,9 @@ jobs:
           - os: macos-latest
             artifact_name: heimdall
             asset_name: heimdall-macos-amd64
+          - os: windows-latest
+            artifact_name: heimdall.exe
+            asset_name: heimdall-windows-amd64
 
     steps:
     - uses: actions/checkout@v2
