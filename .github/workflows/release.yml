@@ -15,12 +15,6 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: ubuntu-latest
-            artifact_name: heimdall
-            asset_name: heimdall-linux-amd64
-          - os: macos-latest
-            artifact_name: heimdall
-            asset_name: heimdall-macos-amd64
           - os: windows-latest
             artifact_name: heimdall-win.exe
             asset_name: heimdall-windows-amd64
